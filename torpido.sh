@@ -29,8 +29,9 @@ do
 	-u: The URL of the file to download. [REQUIRED]
 	-n: The number of times to attempt to download the file. Default is 5.
 	-l: The location to download these files to. Default is the current directory.
-	-w: The additional amount of time to wait between downloads. Torpido already waits 10 seconds
-		to ensure that there has been enough time to create the next circuit.
+	-w: The additional amount of time to wait between downloads. Torpido already 
+		waits 10 seconds to ensure that there has been enough time to create 
+		the next circuit.
 	-h: Display this help"
 		exit
 		;;
@@ -70,7 +71,7 @@ do
 		echo -n "."
 	done
 	sleep $(( $waitTime - ($aniWait * 5) ))
-	#Tell the exit node IP
+	#Print the exit node IP
 	exitAddress=`proxychains curl -s http://canihazip.com/s | grep -v ProxyChains`	
 	echo -e "Exit node IP: $exitAddress"
 	#Download the thing!
