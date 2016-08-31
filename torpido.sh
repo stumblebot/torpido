@@ -76,24 +76,3 @@ do
 	#Download the thing!
 	proxychains wget -nv $downloadURL -P $downloadLocation | grep -v ProxyChains
 done
-
-#TODO/IDEAS
-#--hey! why not dump all exit IPs to a file in /tmp and check them when doing 
-#subsequent file verifications. It would be great to not roll over exit nodes 
-#or get tricked into using an exit node more than once to download a file we're 
-#attempting to verify
-#
-#while $true;do proxychains curl http://canihazip.com/s; torpid=`sudo cat /run/tor/tor.pid`;sudo  kill -1 $torpid;sleep 10;done
-#--I propose an option for a static or variable wait time in between downloads
-#--so, this script relies on proxychains and we can't be sure that proxchains is
-#going to be installed and configured well on a given machine before we run this
-#a misconfig will, at best fail to download and at worst route the download over
-#whatever the current proxychains config is set to use
-#
-#is there a way to check current proxychains config and verify it's set for tor?
-#	YES, Manually iterate through proxychains's .conf preference list
-#should we allow an option for creating a temporary local proxychains config
-#	PROBABLY
-#this option will require that we allow the user to specify tor port or at least
-#the current torrc so we can find other stuff
-#--find location of tor.pid file or let user specify I guess
